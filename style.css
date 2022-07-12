@@ -1,0 +1,173 @@
+:root {
+  --color-bgColor: #fdf0e5;
+  --color-boardColor: #e9e9e9;
+  --color-boardTitleColor: rgb(221, 149, 149);
+  --color-cardColor: rgb(255, 255, 255);
+  --font-white: white;
+
+  --size-space: 10px;
+  --size-space-small: 5px;
+
+  --board-radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  background-color: var(--color-bgColor);
+}
+
+.app {
+  height: 100vh;
+  width: 100%;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  font-size: 16px;
+}
+
+/* 보드 추가 버튼 */
+.addBtn {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 25px;
+  color: var(--font-white);
+  background-color: var(--color-boardTitleColor);
+  transition: transform 300ms ease-in;
+  cursor: pointer;
+}
+
+.addBtn:hover {
+  transform: scale(1.1);
+}
+
+/* 보드 만들기 */
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.newBoard {
+  width: 300px;
+  height: 100px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-boardColor);
+  padding: var(--size-space);
+}
+
+.newBoard__form {
+  width: 100%;
+  text-align: center;
+}
+
+.newBoard__input {
+  width: 80%;
+  padding: var(--size-space-small);
+  border: none;
+  outline: none;
+}
+
+.newBoard__Btn {
+  background-color: transparent;
+  border: none;
+  color: var(--color-boardTitleColor);
+  margin-left: var(--size-space-small);
+  transition: transform 300ms ease-in;
+  cursor: pointer;
+}
+
+.newBoard__Btn:hover {
+  transform: scale(1.1);
+}
+
+.boards {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  width: 18.7rem;
+  min-height: 25rem;
+  padding: 10px;
+  background-color: var(--color-boardColor);
+  margin: 0 auto;
+  -webkit-box-shadow: 5px 5px 10px 5px rgba(104, 104, 104, 0.3);
+  box-shadow: 5px 5px 10px 5px rgba(104, 104, 104, 0.3);
+}
+
+/*  */
+
+.board__title {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  background-color: rgb(221, 149, 149);
+  text-align: center;
+  color: var(--font-white);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.board__input {
+  width: 100%;
+  padding: var(--size-space-small);
+  margin-top: var(--size-space);
+  border: none;
+  outline: none;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-cardColor);
+  margin: var(--size-space) 0;
+  padding: var(--size-space);
+  cursor: grab;
+}
+
+.card_delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 300ms ease-in;
+}
+
+.card_delete i {
+  cursor: pointer;
+  transition: transform 300ms ease-in;
+  color: var(--color-boardTitleColor);
+}
+
+.card_delete i:hover {
+  transform: scale(1.1);
+}
+
+.hide {
+  visibility: hidden;
+}
