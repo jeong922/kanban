@@ -1,14 +1,11 @@
-export default class PageComponent {
-  #element;
-  constructor() {
-    this.#element = document.createElement('div');
-    this.#element.setAttribute('class', 'page');
-    this.#element.textContent = '컴포넌트';
+export default class BaseComponent {
+  constructor(htmlString) {
+    const template = document.createElement('template');
+    template.innerHTML = htmlString;
+    this.element = template.content.firstElementChild;
   }
 
   attachTo(parent) {
-    if (this.#element) {
-      parent.appendChild(this.#element);
-    }
+    parent.appendChild(this.element);
   }
 }

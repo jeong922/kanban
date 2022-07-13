@@ -1,5 +1,5 @@
 import BoardComponent from './components/board.js';
-import PageComponent from './components/component.js';
+import PageComponent from './components/page.js';
 
 class App {
   #page;
