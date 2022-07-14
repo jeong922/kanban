@@ -8,4 +8,11 @@ export default class BaseComponent {
   attachTo(parent) {
     parent.appendChild(this.element);
   }
+
+  removeFrom(parent) {
+    if (parent !== this.element.parentElement) {
+      throw new Error('parent가 일치하지 않음');
+    }
+    parent.removeChild(this.element);
+  }
 }
