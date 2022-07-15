@@ -1,6 +1,6 @@
 import BaseComponent from './component.js';
 
-class PageItemcomponent extends BaseComponent {
+export class PageItemcomponent extends BaseComponent {
   constructor() {
     super(`<section class="board">
             <div class="board__btn">         
@@ -16,22 +16,24 @@ class PageItemcomponent extends BaseComponent {
 
   addChild(child) {
     const container = this.element.querySelector('.item__container');
-    child.attachTo(container);
+    child.attachTo(container, 'beforeend');
   }
 
   setOnCloseListener(listener) {
     this.closeListener = listener;
   }
 }
-export default class PageComponent extends BaseComponent {
-  constructor() {
+export class PageComponent extends BaseComponent {
+  #pageItemConstructor;
+  constructor(pageItemConstructor) {
     super(`<div class="page"></div>`);
+    this.#pageItemConstructor = pageItemConstructor;
   }
 
   addChild(section) {
-    const item = new PageItemcomponent();
+    const item = new this.#pageItemConstructor();
     item.addChild(section);
-    item.attachTo(this.element);
+    item.attachTo(this.element, 'beforeend');
     item.setOnCloseListener(() => {
       item.removeFrom(this.element);
     });
